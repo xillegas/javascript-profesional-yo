@@ -21,33 +21,29 @@
 
       <button>Play/Pause</button>
     </main>
-
     <script>
-      function MediaPlayer(config) {
-        this.media = config.el;
+      const video = document.querySelector("video");
+      const button = document.querySelector("button");
+      // función madre
+      function MediaPlayer(file){
+        this.media = file.el
       }
-
+      
+      // función extendida (instancia)
       MediaPlayer.prototype.play = function() {
-        this.media.play();
-      };
-
-      MediaPlayer.prototype.pause = function() {
-        this.media.pause();
-      };
-
-      MediaPlayer.prototype.togglePlay = function() {
-        if (this.media.paused) {
-          this.play();
+        if(this.media.paused){
+            this.media.play();
         } else {
-          this.pause();
+            this.media.pause()
         }
       };
 
-      const video = document.querySelector('video');
-      const player = new MediaPlayer({ el: video });
+      // desestructuración de objetos (objeto)
+      const  player = new  MediaPlayer( {el :video})
 
-      const button = document.querySelector('button');
-      button.onclick = () => player.togglePlay();
+      // disparador
+      button.onclick = () => player.play();
+
     </script>
   </body>
 </html>

@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <title>scope</title>
+  </head>
+  <body>
+    <a href="/ejercicios/" class="href">Go back</a>
+    <p><em>Abre la consoladora</em></p>
+    <script>
+      // Hay que estar mosca con las importaciones de script, se puede sobreescribir jquery con var $ = "hola"
+      // var es una declaraciòn 
+      var message = "Hello World"
+      
+      function printNumbers0(params) {
+          for (var i = 0; i < 10; i++) {
+              setTimeout(() => {
+                  console.log(i)
+              }, 100);
+          }
+      }
+
+printNumbers0()
+      
+      
+      function printNumbers(params) {
+          for (var i = 0; i < 10; i++) {
+            function eventuallyPrintNumbers(n) {
+                              setTimeout(() => {
+                              console.log(n)
+                          }, 100);
+                        }
+                          eventuallyPrintNumbers(i)
+                        }
+                      }
+
+      printNumbers()
+      
+      function printNumbers2(params) {
+        for (let i = 0; i < 10; i++) {
+          setTimeout(() => {
+            console.log(i);
+          }, 3000);
+        }
+      }
+
+      printNumbers2();
+    </script>
+  </body>
+</html>
